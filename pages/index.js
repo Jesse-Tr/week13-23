@@ -8,7 +8,7 @@ import { getSortedList} from "../lib/data";
 
 // define a getStaticProps() function - this name is defined by next.js
 export async function getStaticProps() {
-  const allData = getSortedList();
+  const allData = await getSortedList();
 
   return {
     props: { allData }
