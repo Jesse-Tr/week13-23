@@ -1,11 +1,13 @@
 import Layout from "@/components/layout";
 import { getAllIds, getData } from "@/lib/data";
+import Link from "next/link";
+
 
 
 
 // define a getSaticsProps() function to have next.js retrieve data to use for dynamic page - this name is defined by next.js
 export async function getStaticProps({params}){
-       const itemData = await getData(params.ID);
+       const itemData = await getData(params.id);
        
        return{
             props: {
@@ -35,12 +37,10 @@ export default function Entry( {itemData} ){
         <Layout>
             <article className="card col-6">
             <div className="card-body">
-                <h5 className="card-title">{itemData.nickname}</h5>
-                <h6 className="card-subtitle mb-2 text-body-secondary">{itemData.phone}</h6>
-                <p className="card-text">{itemData.birthdate}</p>
-                <a href="#" className="card-link">{itemData.email}</a>
-                <br />
-                <a href="#" className="card-link">{itemData.webSite}</a>               
+                <h5 className="card-title">post id: {itemData.ID}</h5>
+                
+                <Link href={itemData.guid}><h6 className="btn btn-primary mt-3">go to post</h6> </Link>
+                     
             </div>
             </article>
         </Layout>
