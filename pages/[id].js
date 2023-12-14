@@ -28,7 +28,7 @@ export async function getStaticPaths(){
     };
 }
 
-
+ 
 
 
 // export our dynamically routed page component Entry
